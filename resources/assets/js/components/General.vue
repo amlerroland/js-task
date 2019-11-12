@@ -1,0 +1,95 @@
+<template>
+    <div class="panel is-primary">
+        <p class="panel-heading">Altalanos</p>
+        <div class="panel-block">
+            <div class="column">
+                <div class="field">
+                    <label for="name" class="label">Nev</label>
+                    <div class="control">
+                        <input class="input" type="text" name="name" placeholder="Nev" v-model="name">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-block">
+            <div class="column is-4">
+                <div class="field">
+                    <label for="membership" class="label">Tagsag</label>
+                    <div class="control">
+                        <label class="radio is-block is-marginless" v-for="membership in memberships" :key="membership.id">
+                            <input type="radio" name="membership" :value="membership.id" v-model="formMembership">
+                            {{ membership.name }}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-4">
+                <div class="field">
+                    <label for="type" class="label">Tipus</label>
+                    <div class="control">
+                        <label class="checkbox is-block is-marginless" v-for="type in types" :key="type.id">
+                            <input type="checkbox" name="type" :value="type.id" v-model="formType">
+                            {{ type.name }}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-4">
+                <div class="field">
+                    <label for="payment_method" class="label">Fizetesi mod</label>
+                    <div class="control">
+                        <div class="select">
+                            <select name="payment_method" v-model="paymentMethod">
+                                <option value="" disabled="disabled">Valasszon</option>
+                                <option :value="payment.id" v-for="payment in payments" :key="payment.id" v-text="payment.name"></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+import { mapState } from 'vuex';
+
+export default {
+    name: 'general',
+    computed: {
+        name: {
+            get() {
+                return this.$store.state.form.data.name;
+            },
+            set(value) {
+                this.$store.commit('updateFormProperty', {name: 'name', value});
+            }
+        },
+        formMembership: {
+            get() {
+                return this.$store.state.form.data.membership;
+            },
+            set(value) {
+                this.$store.commit('updateFormProperty', {name: 'membership', value});
+            }
+        },
+        formType: {
+            get() {
+                return this.$store.state.form.data.type;
+            },
+            set(value) {
+                this.$store.commit('updateFormProperty', {name: 'type', value});
+            }
+        },
+        paymentMethod: {
+            get() {
+                return this.$store.state.form.data.paymentMethod;
+            },
+            set(value) {
+                this.$store.commit('updateFormProperty', {name: 'paymentMethod', value});
+            }
+        },
+        ...mapState(['payments', 'types', 'memberships'])
+    }
+}
+</script>

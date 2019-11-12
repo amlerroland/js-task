@@ -126,6 +126,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
@@ -135,7 +137,124 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     Datatable: _Datatable_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     partnerForm: _Form_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
+  methods: {
+    newPartner: function newPartner() {
+      this.$store.commit('resetForm');
+      this.$modal.show('new_partner');
+    }
+  },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])(['data']))
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Bank.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Bank.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'bank',
+  methods: {
+    add: function add() {
+      this.$store.commit('newBankAccount');
+    },
+    remove: function remove(index) {
+      this.$store.commit('removeBankAccount', index);
+    },
+    updateBankAccountNumber: function updateBankAccountNumber(index, event) {
+      this.$store.commit('updateBankAccountNumber', {
+        index: index,
+        value: event.target.value
+      });
+    },
+    updateBankAccountBank: function updateBankAccountBank(index, event) {
+      this.$store.commit('updateBankAccountBank', {
+        index: index,
+        value: event.target.value
+      });
+    }
+  },
+  computed: _objectSpread({
+    bankAccounts: {
+      get: function get() {
+        return this.$store.state.form.data.bankAccounts;
+      },
+      set: function set(value) {
+        console.log(value);
+      }
+    }
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['banks']))
 });
 
 /***/ }),
@@ -178,110 +297,15 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _classes_Form_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../classes/Form.js */ "./resources/assets/js/classes/Form.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _General_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./General.vue */ "./resources/assets/js/components/General.vue");
+/* harmony import */ var _Bank_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Bank.vue */ "./resources/assets/js/components/Bank.vue");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -291,66 +315,141 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 
-window.$ = jquery__WEBPACK_IMPORTED_MODULE_1___default.a;
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Form',
-  data: function data() {
-    return {
-      form: new _classes_Form_js__WEBPACK_IMPORTED_MODULE_0__["default"]({
-        name: '',
-        type: [],
-        membership: '',
-        paymentMethod: '',
-        bankAccounts: []
-      }),
-      payments: [{
-        id: 1,
-        name: 'Keszpenz'
-      }, {
-        id: 2,
-        name: 'Bankkartya'
-      }],
-      memberships: [{
-        id: 1,
-        name: 'Belfoldi'
-      }, {
-        id: 2,
-        name: 'EU-n beluli'
-      }, {
-        id: 3,
-        name: 'EU-n kivuli'
-      }],
-      types: [{
-        id: 1,
-        name: 'Vevo'
-      }, {
-        id: 2,
-        name: 'Szallito'
-      }, {
-        id: 3,
-        name: 'Maganszemely'
-      }],
-      banks: [{
-        id: 1,
-        name: 'OTP'
-      }, {
-        id: 2,
-        name: 'Erste'
-      }],
-      bankAccount: {
-        bank: '',
-        accountNumber: ''
-      }
-    };
+  components: {
+    generalFieldset: _General_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    bankAccountFieldset: _Bank_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
-  methods: {
-    add: function add() {
-      this.form.data.bankAccounts.push(Object.assign({}, this.bankAccount));
+  data: function data() {
+    return {};
+  },
+  methods: {},
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])(['banks']))
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/General.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/General.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'general',
+  computed: _objectSpread({
+    name: {
+      get: function get() {
+        return this.$store.state.form.data.name;
+      },
+      set: function set(value) {
+        this.$store.commit('updateFormProperty', {
+          name: 'name',
+          value: value
+        });
+      }
     },
-    remove: function remove(index) {
-      this.form.data.bankAccounts.splice(index, 1);
+    formMembership: {
+      get: function get() {
+        return this.$store.state.form.data.membership;
+      },
+      set: function set(value) {
+        this.$store.commit('updateFormProperty', {
+          name: 'membership',
+          value: value
+        });
+      }
+    },
+    formType: {
+      get: function get() {
+        return this.$store.state.form.data.type;
+      },
+      set: function set(value) {
+        this.$store.commit('updateFormProperty', {
+          name: 'type',
+          value: value
+        });
+      }
+    },
+    paymentMethod: {
+      get: function get() {
+        return this.$store.state.form.data.paymentMethod;
+      },
+      set: function set(value) {
+        this.$store.commit('updateFormProperty', {
+          name: 'paymentMethod',
+          value: value
+        });
+      }
     }
-  }
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['payments', 'types', 'memberships']))
 });
 
 /***/ }),
@@ -29653,19 +29752,9 @@ var render = function() {
       _vm._v(" "),
       _vm._m(1),
       _vm._v(" "),
-      _c(
-        "button",
-        {
-          on: {
-            click: function($event) {
-              return _vm.$modal.show("asd")
-            }
-          }
-        },
-        [_vm._v("asdasdas")]
-      ),
+      _c("button", { on: { click: _vm.newPartner } }, [_vm._v("Uj partner")]),
       _vm._v(" "),
-      _c("modal", { attrs: { id: "asd" } }, [_c("partner-form")], 1)
+      _c("modal", { attrs: { id: "new_partner" } }, [_c("partner-form")], 1)
     ],
     1
   )
@@ -29690,6 +29779,165 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("section", [_c("div", { staticClass: "table-container" })])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Bank.vue?vue&type=template&id=7aa728f3&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Bank.vue?vue&type=template&id=7aa728f3& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "panel is-primary" }, [
+    _c("p", { staticClass: "panel-heading" }, [_vm._v("Bankszamla")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "panel-block" }, [
+      _c("table", { staticClass: "table is-fullwidth" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.bankAccounts, function(bankAccount, index) {
+            return _c("tr", { key: index }, [
+              _c("td", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "button is-danger is-outlined",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.remove(index)
+                      }
+                    }
+                  },
+                  [_vm._m(1, true)]
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _c("div", { staticClass: "field" }, [
+                  _c("div", { staticClass: "control" }, [
+                    _c("div", { staticClass: "select" }, [
+                      _c(
+                        "select",
+                        {
+                          attrs: { name: "bank_account[" + index + "][bank]" },
+                          domProps: { value: bankAccount.bank },
+                          on: {
+                            change: function($event) {
+                              return _vm.updateBankAccountBank(index, $event)
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "option",
+                            { attrs: { value: "", disabled: "disabled" } },
+                            [_vm._v("Valasszon")]
+                          ),
+                          _vm._v(" "),
+                          _vm._l(_vm.banks, function(bank) {
+                            return _c("option", {
+                              key: bank.id,
+                              domProps: {
+                                value: bank.id,
+                                textContent: _vm._s(bank.name)
+                              }
+                            })
+                          })
+                        ],
+                        2
+                      )
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _c("div", { staticClass: "field" }, [
+                  _c("div", { staticClass: "control" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "mask",
+                          rawName: "v-mask",
+                          value: "99999999-99999999-99999999",
+                          expression: "'99999999-99999999-99999999'"
+                        }
+                      ],
+                      staticClass: "input",
+                      attrs: {
+                        type: "text",
+                        placeholder: "Bankszamlaszam",
+                        name: "bank_account[" + index + "][accountNumber]"
+                      },
+                      domProps: { value: bankAccount.accountNumber },
+                      on: {
+                        input: function($event) {
+                          return _vm.updateBankAccountNumber(index, $event)
+                        }
+                      }
+                    })
+                  ])
+                ])
+              ])
+            ])
+          }),
+          0
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "panel-block" }, [
+      _c(
+        "button",
+        {
+          staticClass: "button is-primary",
+          attrs: { type: "button" },
+          on: { click: _vm.add }
+        },
+        [_vm._v("Uj bankszamlaszam")]
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Muveletek")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Bank")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Bankszamlaszam")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "icon is-small" }, [
+      _c("i", { staticClass: "fas fa-trash" })
+    ])
   }
 ]
 render._withStripped = true
@@ -29737,419 +29985,253 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("form", [
-    _c("div", { staticClass: "panel is-primary" }, [
-      _c("p", { staticClass: "panel-heading" }, [_vm._v("Altalanos")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "panel-block" }, [
-        _c("div", { staticClass: "column" }, [
-          _c("div", { staticClass: "field" }, [
-            _c("label", { staticClass: "label", attrs: { for: "name" } }, [
-              _vm._v("Nev")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "control" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.data.name,
-                    expression: "form.data.name"
-                  }
-                ],
-                staticClass: "input",
-                attrs: { type: "text", name: "name", placeholder: "Nev" },
-                domProps: { value: _vm.form.data.name },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.form.data, "name", $event.target.value)
-                  }
+  return _c(
+    "form",
+    [_c("general-fieldset"), _vm._v(" "), _c("bank-account-fieldset")],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/General.vue?vue&type=template&id=75a87101&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/General.vue?vue&type=template&id=75a87101& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "panel is-primary" }, [
+    _c("p", { staticClass: "panel-heading" }, [_vm._v("Altalanos")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "panel-block" }, [
+      _c("div", { staticClass: "column" }, [
+        _c("div", { staticClass: "field" }, [
+          _c("label", { staticClass: "label", attrs: { for: "name" } }, [
+            _vm._v("Nev")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "control" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.name,
+                  expression: "name"
                 }
-              })
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "panel-block" }, [
-        _c("div", { staticClass: "column is-4" }, [
-          _c("div", { staticClass: "field" }, [
-            _c(
-              "label",
-              { staticClass: "label", attrs: { for: "membership" } },
-              [_vm._v("Tagsag")]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "control" },
-              _vm._l(_vm.memberships, function(membership) {
-                return _c(
-                  "label",
-                  {
-                    key: membership.id,
-                    staticClass: "radio is-block is-marginless"
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.data.membership,
-                          expression: "form.data.membership"
-                        }
-                      ],
-                      attrs: { type: "radio", name: "membership" },
-                      domProps: {
-                        value: membership.id,
-                        checked: _vm._q(_vm.form.data.membership, membership.id)
-                      },
-                      on: {
-                        change: function($event) {
-                          return _vm.$set(
-                            _vm.form.data,
-                            "membership",
-                            membership.id
-                          )
-                        }
-                      }
-                    }),
-                    _vm._v(
-                      "\n                            " +
-                        _vm._s(membership.name) +
-                        "\n                        "
-                    )
-                  ]
-                )
-              }),
-              0
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "column is-4" }, [
-          _c("div", { staticClass: "field" }, [
-            _c("label", { staticClass: "label", attrs: { for: "type" } }, [
-              _vm._v("Tipus")
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "control" },
-              _vm._l(_vm.types, function(type) {
-                return _c(
-                  "label",
-                  {
-                    key: type.id,
-                    staticClass: "checkbox is-block is-marginless"
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.data.type,
-                          expression: "form.data.type"
-                        }
-                      ],
-                      attrs: { type: "checkbox", name: "type" },
-                      domProps: {
-                        value: type.id,
-                        checked: Array.isArray(_vm.form.data.type)
-                          ? _vm._i(_vm.form.data.type, type.id) > -1
-                          : _vm.form.data.type
-                      },
-                      on: {
-                        change: function($event) {
-                          var $$a = _vm.form.data.type,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = type.id,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 &&
-                                _vm.$set(
-                                  _vm.form.data,
-                                  "type",
-                                  $$a.concat([$$v])
-                                )
-                            } else {
-                              $$i > -1 &&
-                                _vm.$set(
-                                  _vm.form.data,
-                                  "type",
-                                  $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                                )
-                            }
-                          } else {
-                            _vm.$set(_vm.form.data, "type", $$c)
-                          }
-                        }
-                      }
-                    }),
-                    _vm._v(
-                      "\n                            " +
-                        _vm._s(type.name) +
-                        "\n                        "
-                    )
-                  ]
-                )
-              }),
-              0
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "column is-4" }, [
-          _c("div", { staticClass: "field" }, [
-            _c(
-              "label",
-              { staticClass: "label", attrs: { for: "payment_method" } },
-              [_vm._v("Fizetesi mod")]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "control" }, [
-              _c("div", { staticClass: "select" }, [
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.form.data.paymentMethod,
-                        expression: "form.data.paymentMethod"
-                      }
-                    ],
-                    attrs: { name: "payment_method" },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.form.data,
-                          "paymentMethod",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      }
-                    }
-                  },
-                  [
-                    _c(
-                      "option",
-                      { attrs: { value: "", disabled: "disabled" } },
-                      [_vm._v("Valasszon")]
-                    ),
-                    _vm._v(" "),
-                    _vm._l(_vm.payments, function(payment) {
-                      return _c("option", {
-                        key: payment.id,
-                        domProps: {
-                          value: payment.id,
-                          textContent: _vm._s(payment.name)
-                        }
-                      })
-                    })
-                  ],
-                  2
-                )
-              ])
-            ])
+              ],
+              staticClass: "input",
+              attrs: { type: "text", name: "name", placeholder: "Nev" },
+              domProps: { value: _vm.name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.name = $event.target.value
+                }
+              }
+            })
           ])
         ])
       ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "panel is-primary" }, [
-      _c("p", { staticClass: "panel-heading" }, [_vm._v("Bankszamla")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "panel-block" }, [
-        _c("table", { staticClass: "table is-fullwidth" }, [
-          _vm._m(0),
+    _c("div", { staticClass: "panel-block" }, [
+      _c("div", { staticClass: "column is-4" }, [
+        _c("div", { staticClass: "field" }, [
+          _c("label", { staticClass: "label", attrs: { for: "membership" } }, [
+            _vm._v("Tagsag")
+          ]),
           _vm._v(" "),
           _c(
-            "tbody",
-            _vm._l(_vm.form.data.bankAccounts, function(bankAccount, index) {
-              return _c("tr", { key: index }, [
-                _c("td", [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "button is-danger is-outlined",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          return _vm.remove(index)
-                        }
+            "div",
+            { staticClass: "control" },
+            _vm._l(_vm.memberships, function(membership) {
+              return _c(
+                "label",
+                {
+                  key: membership.id,
+                  staticClass: "radio is-block is-marginless"
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.formMembership,
+                        expression: "formMembership"
                       }
+                    ],
+                    attrs: { type: "radio", name: "membership" },
+                    domProps: {
+                      value: membership.id,
+                      checked: _vm._q(_vm.formMembership, membership.id)
                     },
-                    [_vm._m(1, true)]
+                    on: {
+                      change: function($event) {
+                        _vm.formMembership = membership.id
+                      }
+                    }
+                  }),
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(membership.name) +
+                      "\n                    "
                   )
-                ]),
-                _vm._v(" "),
-                _c("td", [
-                  _c("div", { staticClass: "field" }, [
-                    _c("div", { staticClass: "control" }, [
-                      _c("div", { staticClass: "select" }, [
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: bankAccount.bank,
-                                expression: "bankAccount.bank"
-                              }
-                            ],
-                            attrs: {
-                              name: "bank_account[" + index + "][bank]"
-                            },
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  bankAccount,
-                                  "bank",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", disabled: "disabled" } },
-                              [_vm._v("Valasszon")]
-                            ),
-                            _vm._v(" "),
-                            _vm._l(_vm.banks, function(bank) {
-                              return _c("option", {
-                                key: bank.id,
-                                domProps: {
-                                  value: bank.id,
-                                  textContent: _vm._s(bank.name)
-                                }
-                              })
-                            })
-                          ],
-                          2
-                        )
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("td", [
-                  _c("div", { staticClass: "field" }, [
-                    _c("div", { staticClass: "control" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: bankAccount.accountNumber,
-                            expression: "bankAccount.accountNumber"
-                          },
-                          {
-                            name: "mask",
-                            rawName: "v-mask",
-                            value: "99999999-99999999-99999999",
-                            expression: "'99999999-99999999-99999999'"
-                          }
-                        ],
-                        staticClass: "input",
-                        attrs: {
-                          name: "bank_account[" + index + "][accountNumber]",
-                          type: "text",
-                          placeholder: "Bankszamlaszam"
-                        },
-                        domProps: { value: bankAccount.accountNumber },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              bankAccount,
-                              "accountNumber",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ])
-                  ])
-                ])
-              ])
+                ]
+              )
             }),
             0
           )
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "panel-block" }, [
-        _c(
-          "button",
-          {
-            staticClass: "button is-primary",
-            attrs: { type: "button" },
-            on: { click: _vm.add }
-          },
-          [_vm._v("Uj bankszamlaszam")]
-        )
+      _c("div", { staticClass: "column is-4" }, [
+        _c("div", { staticClass: "field" }, [
+          _c("label", { staticClass: "label", attrs: { for: "type" } }, [
+            _vm._v("Tipus")
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "control" },
+            _vm._l(_vm.types, function(type) {
+              return _c(
+                "label",
+                {
+                  key: type.id,
+                  staticClass: "checkbox is-block is-marginless"
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.formType,
+                        expression: "formType"
+                      }
+                    ],
+                    attrs: { type: "checkbox", name: "type" },
+                    domProps: {
+                      value: type.id,
+                      checked: Array.isArray(_vm.formType)
+                        ? _vm._i(_vm.formType, type.id) > -1
+                        : _vm.formType
+                    },
+                    on: {
+                      change: function($event) {
+                        var $$a = _vm.formType,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = type.id,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 && (_vm.formType = $$a.concat([$$v]))
+                          } else {
+                            $$i > -1 &&
+                              (_vm.formType = $$a
+                                .slice(0, $$i)
+                                .concat($$a.slice($$i + 1)))
+                          }
+                        } else {
+                          _vm.formType = $$c
+                        }
+                      }
+                    }
+                  }),
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(type.name) +
+                      "\n                    "
+                  )
+                ]
+              )
+            }),
+            0
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "column is-4" }, [
+        _c("div", { staticClass: "field" }, [
+          _c(
+            "label",
+            { staticClass: "label", attrs: { for: "payment_method" } },
+            [_vm._v("Fizetesi mod")]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "control" }, [
+            _c("div", { staticClass: "select" }, [
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.paymentMethod,
+                      expression: "paymentMethod"
+                    }
+                  ],
+                  attrs: { name: "payment_method" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.paymentMethod = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "", disabled: "disabled" } }, [
+                    _vm._v("Valasszon")
+                  ]),
+                  _vm._v(" "),
+                  _vm._l(_vm.payments, function(payment) {
+                    return _c("option", {
+                      key: payment.id,
+                      domProps: {
+                        value: payment.id,
+                        textContent: _vm._s(payment.name)
+                      }
+                    })
+                  })
+                ],
+                2
+              )
+            ])
+          ])
+        ])
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("Muveletek")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Bank")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Bankszamlaszam")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "icon is-small" }, [
-      _c("i", { staticClass: "fas fa-trash" })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -43415,6 +43497,7 @@ function () {
 
     _classCallCheck(this, Form);
 
+    this.original = Object.assign({}, data);
     this.data = data;
     this.errors = new _Errors_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
   }
@@ -43427,6 +43510,16 @@ function () {
       Object.keys(data).forEach(function (prop) {
         _this.data[prop] = data[prop];
       });
+    }
+  }, {
+    key: "set",
+    value: function set(prop, value) {
+      this.data[prop] = value;
+    }
+  }, {
+    key: "reset",
+    value: function reset() {
+      this.data = Object.assign({}, this.original);
     }
   }]);
 
@@ -43501,6 +43594,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_8142f38c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_8142f38c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Bank.vue":
+/*!*************************************************!*\
+  !*** ./resources/assets/js/components/Bank.vue ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Bank_vue_vue_type_template_id_7aa728f3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Bank.vue?vue&type=template&id=7aa728f3& */ "./resources/assets/js/components/Bank.vue?vue&type=template&id=7aa728f3&");
+/* harmony import */ var _Bank_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Bank.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/Bank.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Bank_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Bank_vue_vue_type_template_id_7aa728f3___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Bank_vue_vue_type_template_id_7aa728f3___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/js/components/Bank.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Bank.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/assets/js/components/Bank.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Bank_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Bank.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Bank.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Bank_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Bank.vue?vue&type=template&id=7aa728f3&":
+/*!********************************************************************************!*\
+  !*** ./resources/assets/js/components/Bank.vue?vue&type=template&id=7aa728f3& ***!
+  \********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bank_vue_vue_type_template_id_7aa728f3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Bank.vue?vue&type=template&id=7aa728f3& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/Bank.vue?vue&type=template&id=7aa728f3&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bank_vue_vue_type_template_id_7aa728f3___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bank_vue_vue_type_template_id_7aa728f3___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -43644,6 +43806,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/assets/js/components/General.vue":
+/*!****************************************************!*\
+  !*** ./resources/assets/js/components/General.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _General_vue_vue_type_template_id_75a87101___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./General.vue?vue&type=template&id=75a87101& */ "./resources/assets/js/components/General.vue?vue&type=template&id=75a87101&");
+/* harmony import */ var _General_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./General.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/General.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _General_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _General_vue_vue_type_template_id_75a87101___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _General_vue_vue_type_template_id_75a87101___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/js/components/General.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/General.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/assets/js/components/General.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_General_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./General.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/General.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_General_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/General.vue?vue&type=template&id=75a87101&":
+/*!***********************************************************************************!*\
+  !*** ./resources/assets/js/components/General.vue?vue&type=template&id=75a87101& ***!
+  \***********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_General_vue_vue_type_template_id_75a87101___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./General.vue?vue&type=template&id=75a87101& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/General.vue?vue&type=template&id=75a87101&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_General_vue_vue_type_template_id_75a87101___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_General_vue_vue_type_template_id_75a87101___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/assets/js/index.js":
 /*!**************************************!*\
   !*** ./resources/assets/js/index.js ***!
@@ -43780,11 +44011,77 @@ var Plugin = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _classes_Form_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../classes/Form.js */ "./resources/assets/js/classes/Form.js");
+
 
 var state = {
-  data: []
+  data: [],
+  form: new _classes_Form_js__WEBPACK_IMPORTED_MODULE_1__["default"]({
+    name: '',
+    type: [],
+    membership: '',
+    paymentMethod: '',
+    bankAccounts: []
+  }),
+  bankAccount: {
+    bank: '',
+    accountNumber: ''
+  },
+  payments: [{
+    id: 1,
+    name: 'Keszpenz'
+  }, {
+    id: 2,
+    name: 'Bankkartya'
+  }],
+  memberships: [{
+    id: 1,
+    name: 'Belfoldi'
+  }, {
+    id: 2,
+    name: 'EU-n beluli'
+  }, {
+    id: 3,
+    name: 'EU-n kivuli'
+  }],
+  types: [{
+    id: 1,
+    name: 'Vevo'
+  }, {
+    id: 2,
+    name: 'Szallito'
+  }, {
+    id: 3,
+    name: 'Maganszemely'
+  }],
+  banks: [{
+    id: 1,
+    name: 'OTP'
+  }, {
+    id: 2,
+    name: 'Erste'
+  }]
 };
-var mutations = {};
+var mutations = {
+  resetForm: function resetForm(state) {
+    state.form.reset();
+  },
+  updateFormProperty: function updateFormProperty(state, payload) {
+    state.form.set(payload.name, payload.value);
+  },
+  newBankAccount: function newBankAccount(state) {
+    state.form.data.bankAccounts.push(Object.assign({}, state.bankAccount));
+  },
+  removeBankAccount: function removeBankAccount(state, index) {
+    state.form.data.bankAccounts.splice(index, 1);
+  },
+  updateBankAccountNumber: function updateBankAccountNumber(state, payload) {
+    state.form.data.bankAccounts[payload.index].accountNumber = payload.value;
+  },
+  updateBankAccountBank: function updateBankAccountBank(state, payload) {
+    state.form.data.bankAccounts[payload.index].bank = payload.value;
+  }
+};
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store({
   state: state,
   mutations: mutations
@@ -43810,8 +44107,8 @@ var mutations = {};
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Web\Sites\jstest\resources\assets\js\index.js */"./resources/assets/js/index.js");
-module.exports = __webpack_require__(/*! D:\Web\Sites\jstest\resources\assets\sass\index.scss */"./resources/assets/sass/index.scss");
+__webpack_require__(/*! /home/z510p/web/sites/js-task/resources/assets/js/index.js */"./resources/assets/js/index.js");
+module.exports = __webpack_require__(/*! /home/z510p/web/sites/js-task/resources/assets/sass/index.scss */"./resources/assets/sass/index.scss");
 
 
 /***/ })

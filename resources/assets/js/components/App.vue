@@ -13,8 +13,10 @@
                 <!-- <datatable :data="data"></datatable> -->
             </div>
         </section>
-        <button @click="$modal.show('asd')">asdasdas</button>
-        <modal id="asd">
+
+        <button @click="newPartner">Uj partner</button>
+
+        <modal id="new_partner">
             <partner-form></partner-form>
         </modal>
     </div>
@@ -28,6 +30,13 @@ import { mapState } from 'vuex';
 export default {
     name: 'App',
     components: { Datatable, partnerForm },
+    methods: {
+        newPartner() {
+            this.$store.commit('resetForm');
+
+            this.$modal.show('new_partner')
+        },
+    },
     computed: {
         ...mapState(['data'])
     }
