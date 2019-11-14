@@ -2,6 +2,10 @@
     <form>
         <general-fieldset></general-fieldset>
         <bank-account-fieldset></bank-account-fieldset>
+        <div class="btn-container is-flex">
+            <vue-button text="Mentes" icon="save" class="is-primary" @click="save"></vue-button>
+            <vue-button text="Megse" icon="ban" @click="cancel"></vue-button>
+        </div>
     </form>
 </template>
 
@@ -14,16 +18,36 @@ import bankAccountFieldset from './Bank.vue';
 export default {
     name: 'Form',
     components: { generalFieldset, bankAccountFieldset },
-    data() {
-        return {
-
-        };
-    },
     methods: {
+        cancel() {
+            this.$store.commit('resetForm');
 
+            this.$modal.hide('new_partner');
+        },
+        save() {
+            if (this.failsValidation()) {
+                return;
+            }
+
+            this.$store.commit('save');
+
+            this.$store.commit('resetForm');
+
+            this.$modal.hide('new_partner');
+        },
+        failsValidation() {
+            try {
+                this.form.validate();
+
+                return false;
+            } catch (error) {
+                console.log(error);
+                return true;
+            }
+        }
     },
     computed: {
-        ...mapState(['banks'])
+        ...mapState(['form'])
     }
 }
 </script>

@@ -3,3 +3,25 @@
 .p-1 {
     padding: 1rem;
 }
+
+.ml-1 {
+    margin-left: 1rem;
+}
+
+.my-2 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.btn-container.is-flex {
+    justify-content: end;
+    margin-top: 1rem;
+}
+
+.btn-container.is-flex .button:not(:last-child) {
+    margin-right: 0.5rem;
+}
+
+.is-aligned-center {
+    align-items: center;
+}

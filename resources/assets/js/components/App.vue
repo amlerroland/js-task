@@ -4,17 +4,18 @@
             <div class="hero-body">
                 <div class="container">
                 <h1 class="title">Tesztfeladat</h1>
-                <h2 class="subtitle">Partnerek</h2>
                 </div>
             </div>
         </section>
         <section>
+            <h1 class="subtitle">Partnerek</h1>
+            <div class="my-2">
+                <vue-button text="Uj partner" icon="plus" class="is-primary" @click="$modal.show('new_partner')"></vue-button>
+            </div>
             <div class="table-container">
-                <!-- <datatable :data="data"></datatable> -->
+                <datatable class="table is-fullwidth"></datatable>
             </div>
         </section>
-
-        <button @click="newPartner">Uj partner</button>
 
         <modal id="new_partner">
             <partner-form></partner-form>
@@ -30,15 +31,5 @@ import { mapState } from 'vuex';
 export default {
     name: 'App',
     components: { Datatable, partnerForm },
-    methods: {
-        newPartner() {
-            this.$store.commit('resetForm');
-
-            this.$modal.show('new_partner')
-        },
-    },
-    computed: {
-        ...mapState(['data'])
-    }
 }
 </script>
